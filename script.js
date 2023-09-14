@@ -10,12 +10,20 @@ container.addEventListener('click', function(e) {
     for(let i=0;i<stars.length;i++){
       stars[i].classList.remove("star-colored");
     }
-  }else{
-    for(let i = 0; i < stars.length; i++) {
-      if (i < rating) {
-        stars[i].classList.add("star-colored");
-      } else {
-        stars[i].classList.remove("star-colored");
+  
+  }
+  else{
+    if(rating==1&&globalRating==1){
+      stars[0].classList.remove("star-colored");
+      rating=0;
+    }
+    else{
+      for(let i = 0; i < stars.length; i++) {
+        if (i < rating) {
+          stars[i].classList.add("star-colored");
+        } else {
+          stars[i].classList.remove("star-colored");
+        }
       }
     }
   }
