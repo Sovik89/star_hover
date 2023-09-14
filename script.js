@@ -40,11 +40,31 @@ container.addEventListener("mouseover",function(e) {
     }
   }
   for(let j=stars.length-1;j>=rating;j--){
-        if(j>=globalRating){
+        if(j>=globalRating-1){
         stars[j].classList.remove("star-colored");
         }
   } 
 });
+
+container.addEventListener("mouseenter",(e)=>{
+  let rating = e.target.dataset.index;
+  for(let i = globalRating; i < rating; i++) {
+    if (i < rating) {
+      stars[i].classList.add("star-colored");
+    }
+  }
+})
+
+container.addEventListener("mouseleave",()=>{
+  //let rating = e.target.dataset.index;
+  for(let i = stars.length-1; i >= globalRating; i--) {
+    
+      stars[i].classList.remove("star-colored");
+    
+  }
+})
+
+
 
 
 
